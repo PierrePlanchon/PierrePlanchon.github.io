@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+}
+
 header{
     color: white;
     border: solid 3px;
@@ -58,7 +62,9 @@ body{
 
 #accueil{
     text-align: center;
-    margin-top: 50px
+    margin: 10%;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 #competences{
@@ -133,23 +139,12 @@ figcaption{
     justify-content: center;
 }
 
-footer{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #333;
-    color: white;
-    border: solid 3px;
-    border-color: gray;
-    margin-top: 50px;
-}
-
-
 .timeline {
     position: relative;
     width: 2px; /* Épaisseur du trait */
     background-color: #333; /* Couleur du trait */
     margin: 0 auto; /* Centrer horizontalement */
-  }
+}
   
 .event {
     position: relative;
@@ -190,6 +185,20 @@ footer{
     color: #888;
 }
 
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333;
+    color: white;
+    border: solid 3px;
+    border-color: gray;
+    margin-top: 50px;
+    position: initial;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 footer p{
     margin: 0;
 }
@@ -205,11 +214,10 @@ a[href^='mailto']::before {
 a[href^='tel']::before {
     content: '📞';
 }
-  
 
 @font-face {
- font-family:ftnk;
- src:url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),
+    font-family:ftnk;
+    src:url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),
  url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/d?subset_id=2&fvd=n4&v=3) format("woff"),
  url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/a?subset_id=2&fvd=n4&v=3) format("opentype");
  font-weight:400;
