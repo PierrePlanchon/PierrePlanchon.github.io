@@ -62,9 +62,23 @@ body{
 }
 
 #competences{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     padding-bottom: 15px;
 }
+
+.skills{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.skills p{
+    margin: 5px;
+}
+
 #competences p{
     border: 2px solid black;
     border-radius: 5px;
