@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <div class="gauche">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#competences">Compétences</a></i>
+            </div>
+            <p id="nom">Pierre Planchon</p>
+            <div class="droite">
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </div>
+        </ul>
+    </header>
+    <div id="accueil">
+        <p>Actuellement étudiant en 2e année de BUT informatique à l’IUT de Lille, 
+            je suis à la recherche d’un stage de 10 semaines dans le domaine de l’informatique 
+            afin d’acquérir de l’expérience et de passer en 3e année.</p>
+    </div>
+    <div id="formation">
+        <hr class="custom-hr" data-content="Formation"/>
+        <div class="image-container">
+            <figure>
+                <!-- <img src="but-info.png" alt="BUT informatique"> -->
+                <label for="but-info">BUT informatique: </label>
+                <progress id="but-info" max="100" value="50">50%</progress>
+                <figcaption>BUT informatique (en cours)</figcaption>
+            </figure>
+            <figure>
+                <img src="bac.png" alt="Bac Général, spécialités Maths & NSI">
+                <figcaption>Bac Général (2022 - Spécialités Maths & NSI, Institution Saint Jean, Douai)</figcaption>
+            </figure>
+            <figure>
+                <img src="bafa.png" alt="BAFA">
+                <figcaption>BAFA (2022 - MJC de Douai & Lambres-lez-Douai)</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div id="competences">
+        <hr class="custom-hr" data-content="Compétences"/>
+        <p>Java</p>
+        <p>HTML/CSS</p>
+        <p>SQL/Postgresql</p>
+        <p>Python</p>
+        <br><br>
+        <p>Anglais (B1)</p>
+        <p>Espagnol</p>
+    </div>
+    <div id="experiences">
+        <hr class="custom-hr" data-content="Expériences"/>
+        <div class="timeline">
+            <div class="event">
+                <span class="year"><p>Aujourd'hui</p></span>
+            </div>
+            <div class="event">
+                <span class="year"><h3>Animateur - Club Informatique</h3></span>
+                <p class="date-loca">Depuis Septembre 2023, Douai</p>
+                <p class="emploi-info">Emploi fixe, chaque samedi matin (hors vacances et jours fériés)</p>
+                <p>Animateur d'un club informatique avec des jeunes (primaires et collégiens).</p>
+            </div>
+            <div class="event">
+                <span class="year"><h3>Animateur</h3></span>
+                <p class="date-loca">Depuis Avril 2022, Douai</p>
+                <p class="emploi-info">Emploi régulier, chaque vacances scolaires.</p>
+                <p>Animateur en ALSH (MJC).</p>
+            </div>
+            <!-- Ajoutez d'autres événements ici -->
+        </div>
+    </div>
+    <div id="realisations">
+        <hr class="custom-hr" data-content="Réalisations"/>
+    </div>
+    <footer id="contact">
+        <p>Pour me contacter :</p>
+        <address>
+            <a href="mailto:pierre.planchon21@gmail.com">pierre.planchon21@gmail.com</a>
+            <a href="tel:+33651318546">+33 6 51 31 85 46</a>
+        </address>
+    </footer>
+</body>
+</html>

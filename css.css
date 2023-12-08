@@ -1,0 +1,204 @@
+header{
+    color: white;
+    border: solid 3px;
+    border-color: gray;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+header>ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+li{
+    padding: 5px;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+li:hover{
+    background-color: #111;
+}
+body{
+    font-family: ftnk;
+    font-size: 20px
+}
+
+.gauche{
+    display: flex;
+    justify-content: left;
+    width: auto;
+}
+
+.droite{
+    display: flex;
+    justify-content: right;
+    width: auto;
+}
+
+#nom{
+    font-size: 110%;
+    font-weight: 700;
+    margin: 0;
+}
+
+#accueil{
+    text-align: center;
+}
+
+#competences{
+    text-align: center;
+    padding-bottom: 15px;
+}
+#competences p{
+    border: 2px solid black;
+    border-radius: 5px;
+    display: inline;
+    padding: 2px;
+}
+
+#experiences{
+    padding-bottom: 15px;
+}
+
+.custom-hr{
+    border: none;
+    border-top: 3px double #333;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    padding: 5px;
+    height: 5px;
+    width: 60%;
+    line-height: 0.5em;
+}
+
+.custom-hr:after{
+    background: #fff;
+    content: attr(data-content);
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+figure{
+    margin: 10px;
+    text-align: center;
+}
+
+img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+figcaption{
+    font-style: italic;
+    color: #888;
+    margin-top: 10px;
+}
+
+.image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333;
+    color: white;
+    border: solid 3px;
+    border-color: gray;
+    margin-top: 50px;
+}
+
+
+.timeline {
+    position: relative;
+    width: 2px; /* Épaisseur du trait */
+    background-color: #333; /* Couleur du trait */
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+  
+.event {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.year{
+    left: -150%;
+    top: 0;
+    font-weight: bolder;
+}
+
+.event h3, .event p, .event h5{
+    width: 450px;
+    margin: 0px;
+}
+  
+.event:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px; /* Largeur du point */
+    height: 10px; /* Hauteur du point */
+    background-color: darkblue; /* Couleur du point */
+    border-radius: 50%;
+    transform: translateX(-142%);
+}
+
+.emploi-info{
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.date-loca{
+    font-style: italic;
+    color: #888;
+}
+
+footer p{
+    margin: 0;
+}
+
+footer address a:hover{
+    color: white;
+}
+
+a[href^='mailto']::before {
+    content: '📧';
+}
+  
+a[href^='tel']::before {
+    content: '📞';
+}
+  
+
+@font-face {
+ font-family:ftnk;
+ src:url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),
+ url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/d?subset_id=2&fvd=n4&v=3) format("woff"),
+ url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/a?subset_id=2&fvd=n4&v=3) format("opentype");
+ font-weight:400;
+ font-style:normal;
+ font-stretch:normal;
+ font-display:auto;
+}
