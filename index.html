@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Répertoire de Chants</title>
+  <style>
+    /* Ajoutez du style selon vos préférences */
+  </style>
+</head>
+<body>
+  <h1>Répertoire de Chants</h1>
+  <div id="repertoire"></div>
+
+  <script>
+    // Charger les chants depuis le fichier JSON
+    fetch('./chants.json')
+      .then(response => response.json())
+      .then(data => {
+        let contenu = "";
+        data.forEach(chant => {
+          contenu += `
+            <div>
+              <h2>${chant.titre}</h2>
+              <p><strong>Paroles:</strong> ${chant.paroles}</p>
+              <p><strong>Tranche d'âge:</strong> ${chant.tranche_age}</p>
+              <p><strong>Intensité:</strong> ${chant.intensite}</p>
+              <p><strong>Complexité:</strong> ${chant.complexite}</p>
+              <p><strong>Longueur:</strong> ${chant.longueur}</p>
+            </div>
+          `;
+        });
+        document.getElementById('repertoire').innerHTML = contenu;
+      })
+      .catch(error => console.error('Erreur lors du chargement des chants:', error));
+  </script>
+</body>
+</html>

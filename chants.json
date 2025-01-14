@@ -1,0 +1,18 @@
+[
+    {
+      "titre": "Frère Jacques",
+      "paroles": "Frère Jacques, Frère Jacques, Dormez-vous? Dormez-vous?...",
+      "tranche_age": "3-6",
+      "intensite": 1,
+      "complexite": 1,
+      "longueur": 1
+    },
+    {
+      "titre": "La Danse des Canards",
+      "paroles": "C'est la danse des canards, qui en sortant de la mare...",
+      "age": "6-10",
+      "intensite": 2,
+      "complexite": 2,
+      "longueur": 2
+    }
+  ]
