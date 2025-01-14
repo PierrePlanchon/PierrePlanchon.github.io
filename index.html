@@ -52,59 +52,94 @@
   <script>
     let chantsData = [];
 
+    // Associer les valeurs numériques à des étiquettes
+    
+    
     // Charger les chants depuis le fichier JSON
     fetch('chants.json')
-      .then(response => response.json())
-      .then(chants => {
+    .then(response => response.json())
+    .then(chants => {
         chantsData = chants;
         afficherChants(chantsData);
-      })
+    })
       .catch(error => console.error('Erreur de chargement des chants:', error));
-
-    // Affiche les chants correspondant aux filtres sélectionnés
+      
+      // Affiche les chants correspondant aux filtres sélectionnés
     function afficherChants(chants) {
-      const repertoireDiv = document.getElementById('repertoire');
-      repertoireDiv.innerHTML = '';
-      chants.forEach((chant, index) => {
-        const chantDiv = document.createElement('div');
+        const repertoireDiv = document.getElementById('repertoire');
+        repertoireDiv.innerHTML = '';
+        chants.forEach((chant, index) => {
+            const chantDiv = document.createElement('div');
         chantDiv.innerHTML = `
-          <h3>${chant.titre}</h3>
-          <button onclick="afficherDetails(${index})">Voir détails</button>
+        <h3>${chant.titre}</h3>
+        <button onclick="afficherDetails(${index})">Voir détails</button>
         `;
         repertoireDiv.appendChild(chantDiv);
-      });
+    });
     }
 
     // Affiche les détails d'un chant sélectionné
     function afficherDetails(index) {
-      const chant = chantsData[index];
-      document.getElementById('chant-title').textContent = chant.titre;
-      document.getElementById('chant-paroles').textContent = chant.paroles;
-      document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
-      document.getElementById('chant-intensite').textContent = chant.intensite;
-      document.getElementById('chant-complexite').textContent = chant.complexite;
-      document.getElementById('chant-longueur').textContent = chant.longueur;
-      document.getElementById('chant-details').style.display = 'block';
+        const chant = chantsData[index];
+        document.getElementById('chant-title').textContent = chant.titre;
+        document.getElementById('chant-paroles').textContent = chant.paroles;
+        document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
+        document.getElementById('chant-intensite').textContent = chant.intensite;
+        document.getElementById('chant-complexite').textContent = chant.complexite;
+        document.getElementById('chant-longueur').textContent = chant.longueur;
+        document.getElementById('chant-details').style.display = 'block';
     }
 
     // Filtrage dynamique
     document.querySelectorAll('.filter').forEach(filter => {
-      filter.addEventListener('change', filtrerChants);
+        filter.addEventListener('change', filtrerChants);
     });
 
     function filtrerChants() {
-      const age = document.getElementById('filter-age').value;
-      const intensite = document.getElementById('filter-intensite').value;
-      const complexite = document.getElementById('filter-complexite').value;
-
-      const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.tranche_age === age) &&
-               (!intensite || chant.intensite === intensite) &&
-               (!complexite || chant.complexite === complexite);
-      });
-
-      afficherChants(chantsFiltres);
+        const age = document.getElementById('filter-age').value;
+        const intensite = document.getElementById('filter-intensite').value;
+        const complexite = document.getElementById('filter-complexite').value;
+        
+        const chantsFiltres = chantsData.filter(chant => {
+            return (!age || chant.tranche_age === age) &&
+            (!intensite || chant.intensite === intensite) &&
+            (!complexite || chant.complexite === complexite);
+        });
+        
+        afficherChants(chantsFiltres);
     }
-  </script>
+    const labels = {
+    intensite: ["Calme", "Énergique"],
+    complexite: ["Facile", "Moyenne"],
+    longueur: ["Courte", "Moyenne"]
+    };
+
+    // Affiche les détails d'un chant
+    function afficherDetails(index) {
+    const chant = chantsData[index];
+    document.getElementById('chant-title').textContent = chant.titre;
+    document.getElementById('chant-paroles').textContent = chant.paroles;
+    document.getElementById('chant-tranche-age').textContent = chant.age;
+    document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
+    document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
+    document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
+    document.getElementById('chant-details').style.display = 'block';
+    }
+
+    // Adaptation des filtres si nécessaire
+    function filtrerChants() {
+    const age = document.getElementById('filter-age').value;
+    const intensite = document.getElementById('filter-intensite').value;
+    const complexite = document.getElementById('filter-complexite').value;
+
+    const chantsFiltres = chantsData.filter(chant => {
+        return (!age || chant.age === age) &&
+            (!intensite || chant.intensite == intensite) &&
+            (!complexite || chant.complexite == complexite);
+    });
+
+    afficherChants(chantsFiltres);
+    }
+</script>
 </body>
 </html>
