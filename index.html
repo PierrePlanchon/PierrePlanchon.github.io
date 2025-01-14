@@ -83,17 +83,23 @@
       });
     }
 
+    // Fonction pour formater les paroles avec des retours à la ligne
+    function formatParoles(paroles) {
+    return paroles.replace(/\n/g, '<br>');
+    }
+
     // Affiche les détails d'un chant sélectionné
     function afficherDetails(index) {
-      const chant = chantsData[index];
-      document.getElementById('chant-title').textContent = chant.titre;
-      document.getElementById('chant-paroles').textContent = chant.paroles;
-      document.getElementById('chant-tranche-age').textContent = chant.age;
-      document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
-      document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
-      document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
-      document.getElementById('chant-details').style.display = 'block';
+    const chant = chantsData[index];
+    document.getElementById('chant-title').textContent = chant.titre;
+    document.getElementById('chant-paroles').innerHTML = formatParoles(chant.paroles);
+    document.getElementById('chant-tranche-age').textContent = chant.age;
+    document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
+    document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
+    document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
+    document.getElementById('chant-details').style.display = 'block';
     }
+
 
     // Filtrage dynamique
     document.querySelectorAll('.filter').forEach(filter => {
