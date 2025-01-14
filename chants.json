@@ -2,7 +2,7 @@
     {
       "titre": "Frère Jacques",
       "paroles": "Frère Jacques, Frère Jacques, Dormez-vous? Dormez-vous?...",
-      "tranche_age": "3-6",
+      "age": "3-6",
       "intensite": 1,
       "complexite": 1,
       "longueur": 1
