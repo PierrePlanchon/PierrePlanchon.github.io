@@ -3,23 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Répertoire de Chants</title>
+  <title>Répertoire de Chants avec Filtres</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
-    select { padding: 10px; font-size: 16px; }
+    .filter { margin-right: 15px; padding: 5px 10px; }
+    #repertoire { margin-top: 20px; }
     #chant-details { margin-top: 20px; display: none; }
   </style>
 </head>
 <body>
   <h1>Répertoire de Chants</h1>
-  
-  <!-- Menu de sélection des chants -->
-  <label for="chant-select">Choisissez un chant :</label>
-  <select id="chant-select">
-    <option value="">-- Sélectionnez un chant --</option>
+
+  <!-- Filtres -->
+  <label for="filter-age">Tranche d'âge :</label>
+  <select id="filter-age" class="filter">
+    <option value="">-- Toutes --</option>
+    <option value="3-6 ans">3-6 ans</option>
+    <option value="6-10 ans">6-10 ans</option>
   </select>
-  
-  <!-- Section pour afficher les détails du chant -->
+
+  <label for="filter-intensite">Intensité :</label>
+  <select id="filter-intensite" class="filter">
+    <option value="">-- Toutes --</option>
+    <option value="Calme">Calme</option>
+    <option value="Énergique">Énergique</option>
+  </select>
+
+  <label for="filter-complexite">Complexité :</label>
+  <select id="filter-complexite" class="filter">
+    <option value="">-- Toutes --</option>
+    <option value="Facile">Facile</option>
+    <option value="Moyenne">Moyenne</option>
+  </select>
+
+  <!-- Liste des chants filtrés -->
+  <div id="repertoire"></div>
+
+  <!-- Section pour afficher les détails d'un chant -->
   <div id="chant-details">
     <h2 id="chant-title"></h2>
     <p><strong>Paroles :</strong> <span id="chant-paroles"></span></p>
@@ -30,38 +50,61 @@
   </div>
 
   <script>
+    let chantsData = [];
+
     // Charger les chants depuis le fichier JSON
     fetch('chants.json')
       .then(response => response.json())
       .then(chants => {
-        const selectElement = document.getElementById('chant-select');
-        
-        // Ajouter les options au menu déroulant
-        chants.forEach((chant, index) => {
-          const option = document.createElement('option');
-          option.value = index;
-          option.textContent = chant.titre;
-          selectElement.appendChild(option);
-        });
-
-        // Afficher les détails du chant sélectionné
-        selectElement.addEventListener('change', function() {
-          const selectedIndex = this.value;
-          if (selectedIndex) {
-            const chant = chants[selectedIndex];
-            document.getElementById('chant-title').textContent = chant.titre;
-            document.getElementById('chant-paroles').textContent = chant.paroles;
-            document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
-            document.getElementById('chant-intensite').textContent = chant.intensite;
-            document.getElementById('chant-complexite').textContent = chant.complexite;
-            document.getElementById('chant-longueur').textContent = chant.longueur;
-            document.getElementById('chant-details').style.display = 'block';
-          } else {
-            document.getElementById('chant-details').style.display = 'none';
-          }
-        });
+        chantsData = chants;
+        afficherChants(chantsData);
       })
       .catch(error => console.error('Erreur de chargement des chants:', error));
+
+    // Affiche les chants correspondant aux filtres sélectionnés
+    function afficherChants(chants) {
+      const repertoireDiv = document.getElementById('repertoire');
+      repertoireDiv.innerHTML = '';
+      chants.forEach((chant, index) => {
+        const chantDiv = document.createElement('div');
+        chantDiv.innerHTML = `
+          <h3>${chant.titre}</h3>
+          <button onclick="afficherDetails(${index})">Voir détails</button>
+        `;
+        repertoireDiv.appendChild(chantDiv);
+      });
+    }
+
+    // Affiche les détails d'un chant sélectionné
+    function afficherDetails(index) {
+      const chant = chantsData[index];
+      document.getElementById('chant-title').textContent = chant.titre;
+      document.getElementById('chant-paroles').textContent = chant.paroles;
+      document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
+      document.getElementById('chant-intensite').textContent = chant.intensite;
+      document.getElementById('chant-complexite').textContent = chant.complexite;
+      document.getElementById('chant-longueur').textContent = chant.longueur;
+      document.getElementById('chant-details').style.display = 'block';
+    }
+
+    // Filtrage dynamique
+    document.querySelectorAll('.filter').forEach(filter => {
+      filter.addEventListener('change', filtrerChants);
+    });
+
+    function filtrerChants() {
+      const age = document.getElementById('filter-age').value;
+      const intensite = document.getElementById('filter-intensite').value;
+      const complexite = document.getElementById('filter-complexite').value;
+
+      const chantsFiltres = chantsData.filter(chant => {
+        return (!age || chant.tranche_age === age) &&
+               (!intensite || chant.intensite === intensite) &&
+               (!complexite || chant.complexite === complexite);
+      });
+
+      afficherChants(chantsFiltres);
+    }
   </script>
 </body>
 </html>
