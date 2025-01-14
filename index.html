@@ -5,34 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Répertoire de Chants</title>
   <style>
-    /* Ajoutez du style selon vos préférences */
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    select { padding: 10px; font-size: 16px; }
+    #chant-details { margin-top: 20px; display: none; }
   </style>
 </head>
 <body>
   <h1>Répertoire de Chants</h1>
-  <div id="repertoire"></div>
+  
+  <!-- Menu de sélection des chants -->
+  <label for="chant-select">Choisissez un chant :</label>
+  <select id="chant-select">
+    <option value="">-- Sélectionnez un chant --</option>
+  </select>
+  
+  <!-- Section pour afficher les détails du chant -->
+  <div id="chant-details">
+    <h2 id="chant-title"></h2>
+    <p><strong>Paroles :</strong> <span id="chant-paroles"></span></p>
+    <p><strong>Tranche d'âge :</strong> <span id="chant-tranche-age"></span></p>
+    <p><strong>Intensité :</strong> <span id="chant-intensite"></span></p>
+    <p><strong>Complexité :</strong> <span id="chant-complexite"></span></p>
+    <p><strong>Longueur :</strong> <span id="chant-longueur"></span></p>
+  </div>
 
   <script>
     // Charger les chants depuis le fichier JSON
-    fetch('./chants.json')
+    fetch('chants.json')
       .then(response => response.json())
-      .then(data => {
-        let contenu = "";
-        data.forEach(chant => {
-          contenu += `
-            <div>
-              <h2>${chant.titre}</h2>
-              <p><strong>Paroles:</strong> ${chant.paroles}</p>
-              <p><strong>Tranche d'âge:</strong> ${chant.tranche_age}</p>
-              <p><strong>Intensité:</strong> ${chant.intensite}</p>
-              <p><strong>Complexité:</strong> ${chant.complexite}</p>
-              <p><strong>Longueur:</strong> ${chant.longueur}</p>
-            </div>
-          `;
+      .then(chants => {
+        const selectElement = document.getElementById('chant-select');
+        
+        // Ajouter les options au menu déroulant
+        chants.forEach((chant, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          option.textContent = chant.titre;
+          selectElement.appendChild(option);
         });
-        document.getElementById('repertoire').innerHTML = contenu;
+
+        // Afficher les détails du chant sélectionné
+        selectElement.addEventListener('change', function() {
+          const selectedIndex = this.value;
+          if (selectedIndex) {
+            const chant = chants[selectedIndex];
+            document.getElementById('chant-title').textContent = chant.titre;
+            document.getElementById('chant-paroles').textContent = chant.paroles;
+            document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
+            document.getElementById('chant-intensite').textContent = chant.intensite;
+            document.getElementById('chant-complexite').textContent = chant.complexite;
+            document.getElementById('chant-longueur').textContent = chant.longueur;
+            document.getElementById('chant-details').style.display = 'block';
+          } else {
+            document.getElementById('chant-details').style.display = 'none';
+          }
+        });
       })
-      .catch(error => console.error('Erreur lors du chargement des chants:', error));
+      .catch(error => console.error('Erreur de chargement des chants:', error));
   </script>
 </body>
 </html>
