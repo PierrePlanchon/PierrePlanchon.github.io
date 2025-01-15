@@ -135,26 +135,29 @@
     });
 
     function filtrerChants() {
-      const age = document.getElementById('filter-age').value;
-      const intensite = document.getElementById('filter-intensite').value;
-      const complexite = document.getElementById('filter-complexite').value;
+        const age = document.getElementById('filter-age').value;
+        const intensite = document.getElementById('filter-intensite').value;
+        const complexite = document.getElementById('filter-complexite').value;
 
-      const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.age === age) &&
-               (!intensite || chant.intensite == intensite) &&
-               (!complexite || chant.complexite == complexite);
-      });
+        const chantsFiltres = chantsData.filter(chant => {
+            return (!age || chant.age === age) &&
+                (!intensite || chant.intensite == intensite) &&
+                (!complexite || chant.complexite == complexite);
+        });
 
-      afficherChants(chantsFiltres);
+        afficherChants(chantsFiltres); // Appel de la fonction pour afficher les chants filtrés
     }
 
     function afficherChants(chants) {
-      if (chants.length > 0) {
-        afficherDetails(chants.length - 1);
-      } else {
-        document.getElementById('chant-details').innerHTML = "<p>Aucun chant trouvé.</p>";
-      }
+        if (chants.length > 0) {
+            // Si des chants sont filtrés, afficher le premier chant
+            afficherDetails(0);
+        } else {
+            // Sinon, afficher un message d'absence de résultats
+            document.getElementById('chant-details').innerHTML = "<p>Aucun chant trouvé.</p>";
+        }
     }
+
   </script>
 </body>
 </html>
