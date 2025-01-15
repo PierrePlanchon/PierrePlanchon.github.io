@@ -3,58 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Répertoire de Chants avec Filtres</title>
+  <title>Répertoire de Chants</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .filter { margin-right: 15px; padding: 5px 10px; }
-    #repertoire { margin-top: 20px; }
-    #chant-details { margin-top: 20px; display: none; }
-    a { text-decoration: none; color: blue; cursor: pointer; }
-    a:hover { text-decoration: underline; }
+    /* Mise en page globale */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+    }
+
+    /* Div du menu sur la gauche */
+    #menu {
+      background-color: #D2B48C;
+      padding: 20px;
+      width: 300px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Contenu principal */
+    #main-content {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .filter {
+      display: block;
+      margin: 10px 0;
+      padding: 5px;
+      width: 100%;
+    }
+
+    #chant-details {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
   </style>
 </head>
 <body>
-  <h1>Répertoire de Chants</h1>
 
-  <!-- Filtres -->
-  <label for="filter-age">Tranche d'âge :</label>
-  <select id="filter-age" class="filter">
-    <option value="">-- Toutes --</option>
-    <option value="3-6">3-6 ans</option>
-    <option value="6-10">6-10 ans</option>
-  </select>
+  <!-- Menu latéral -->
+  <div id="menu">
+    <h1>Répertoire de Chants</h1>
 
-  <label for="filter-intensite">Intensité :</label>
-  <select id="filter-intensite" class="filter">
-    <option value="">-- Toutes --</option>
-    <option value="1">Calme</option>
-    <option value="2">Énergique</option>
-  </select>
+    <!-- Filtres -->
+    <label for="filter-age">Tranche d'âge :</label>
+    <select id="filter-age" class="filter">
+      <option value="">-- Toutes --</option>
+      <option value="3-6">3-6 ans</option>
+      <option value="6-10">6-10 ans</option>
+    </select>
 
-  <label for="filter-complexite">Complexité :</label>
-  <select id="filter-complexite" class="filter">
-    <option value="">-- Toutes --</option>
-    <option value="1">Facile</option>
-    <option value="2">Moyenne</option>
-  </select>
+    <label for="filter-intensite">Intensité :</label>
+    <select id="filter-intensite" class="filter">
+      <option value="">-- Toutes --</option>
+      <option value="1">Calme</option>
+      <option value="2">Énergique</option>
+    </select>
 
-  <!-- Liste des chants filtrés -->
-  <div id="repertoire"></div>
+    <label for="filter-complexite">Complexité :</label>
+    <select id="filter-complexite" class="filter">
+      <option value="">-- Toutes --</option>
+      <option value="1">Facile</option>
+      <option value="2">Moyenne</option>
+    </select>
+  </div>
 
-  <!-- Section pour afficher les détails d'un chant -->
-  <div id="chant-details">
-    <h2 id="chant-title"></h2>
-    <p><strong>Paroles :</strong> <span id="chant-paroles"></span></p>
-    <p><strong>Tranche d'âge :</strong> <span id="chant-tranche-age"></span></p>
-    <p><strong>Intensité :</strong> <span id="chant-intensite"></span></p>
-    <p><strong>Complexité :</strong> <span id="chant-complexite"></span></p>
-    <p><strong>Longueur :</strong> <span id="chant-longueur"></span></p>
+  <!-- Contenu principal -->
+  <div id="main-content">
+    <div id="chant-details">
+      <h2 id="chant-title"></h2>
+      <p><strong>Paroles :</strong> <span id="chant-paroles"></span></p>
+      <p><strong>Tranche d'âge :</strong> <span id="chant-tranche-age"></span></p>
+      <p><strong>Intensité :</strong> <span id="chant-intensite"></span></p>
+      <p><strong>Complexité :</strong> <span id="chant-complexite"></span></p>
+      <p><strong>Longueur :</strong> <span id="chant-longueur"></span></p>
+    </div>
   </div>
 
   <script>
     let chantsData = [];
 
-    // Associer les valeurs numériques à des étiquettes
     const labels = {
       intensite: ["Calme", "Énergique"],
       complexite: ["Facile", "Moyenne"],
@@ -66,40 +107,27 @@
       .then(response => response.json())
       .then(chants => {
         chantsData = chants;
-        afficherChants(chantsData);
+        afficherDernierChant();
       })
       .catch(error => console.error('Erreur de chargement des chants:', error));
 
-    // Affiche les chants correspondant aux filtres sélectionnés
-    function afficherChants(chants) {
-      const repertoireDiv = document.getElementById('repertoire');
-      repertoireDiv.innerHTML = '';
-      chants.forEach((chant, index) => {
-        const chantDiv = document.createElement('div');
-        chantDiv.innerHTML = `
-          <a onclick="afficherDetails(${index})">${chant.titre}</a>
-        `;
-        repertoireDiv.appendChild(chantDiv);
-      });
+    // Affiche le dernier chant ajouté
+    function afficherDernierChant() {
+      if (chantsData.length > 0) {
+        afficherDetails(chantsData.length - 1);
+      }
     }
 
-    // Fonction pour formater les paroles avec des retours à la ligne
-    function formatParoles(paroles) {
-    return paroles.replace(/\n/g, '<br>');
-    }
-
-    // Affiche les détails d'un chant sélectionné
+    // Affiche les détails d'un chant
     function afficherDetails(index) {
-    const chant = chantsData[index];
-    document.getElementById('chant-title').textContent = chant.titre;
-    document.getElementById('chant-paroles').innerHTML = formatParoles(chant.paroles);
-    document.getElementById('chant-tranche-age').textContent = chant.age;
-    document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
-    document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
-    document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
-    document.getElementById('chant-details').style.display = 'block';
+      const chant = chantsData[index];
+      document.getElementById('chant-title').textContent = chant.titre;
+      document.getElementById('chant-paroles').innerHTML = chant.paroles.replace(/\n/g, '<br>');
+      document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
+      document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
+      document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
+      document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
     }
-
 
     // Filtrage dynamique
     document.querySelectorAll('.filter').forEach(filter => {
@@ -112,12 +140,20 @@
       const complexite = document.getElementById('filter-complexite').value;
 
       const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.age === age) &&
+        return (!age || chant.tranche_age === age) &&
                (!intensite || chant.intensite == intensite) &&
                (!complexite || chant.complexite == complexite);
       });
 
       afficherChants(chantsFiltres);
+    }
+
+    function afficherChants(chants) {
+      if (chants.length > 0) {
+        afficherDetails(chants.length - 1);
+      } else {
+        document.getElementById('chant-details').innerHTML = "<p>Aucun chant trouvé.</p>";
+      }
     }
   </script>
 </body>
