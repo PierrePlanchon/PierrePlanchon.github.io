@@ -1,7 +1,7 @@
 [
     {
       "titre": "Bougalou",
-      "paroles": "1, 2, 3, 4 ! 5, 6, 7, 8 (bis)\nMais montre moi ton Bougalou !\nMais c'est quoi un Bougalou ? (bis)\nBou ! Galou ! Bou Bou Galou, wouh ! (bis)",
+      "paroles": "\n1, 2, 3, 4 ! 5, 6, 7, 8 (bis)\nMais montre moi ton Bougalou !\nMais c'est quoi un Bougalou ? (bis)\nBou ! Galou ! Bou Bou Galou, wouh ! (bis)",
       "age": "3-6",
       "intensite": 1,
       "complexite": 1,
@@ -9,7 +9,7 @@
     },
     {
       "titre": "Le grand serpent de la montagne",
-      "paroles": "Je suis le grand serpent, le grand serpent de la montagne\nEt je ne suis pas content car j'ai perdu ma queue !\nToi qui est mon ami, ne veux-tu pas, oui, toi aussi ?\nEtre un p'tit bout d'ma queue, un tout p'tit bout d'ma queue ?",
+      "paroles": "\nJe suis le grand serpent, le grand serpent de la montagne\nEt je ne suis pas content car j'ai perdu ma queue !\nToi qui est mon ami, ne veux-tu pas, oui, toi aussi ?\nEtre un p'tit bout d'ma queue, un tout p'tit bout d'ma queue ?",
       "age": "6-10",
       "intensite": 2,
       "complexite": 2,

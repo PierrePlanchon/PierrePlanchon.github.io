@@ -123,7 +123,7 @@
       const chant = chantsData[index];
       document.getElementById('chant-title').textContent = chant.titre;
       document.getElementById('chant-paroles').innerHTML = chant.paroles.replace(/\n/g, '<br>');
-      document.getElementById('chant-tranche-age').textContent = chant.tranche_age;
+      document.getElementById('chant-tranche-age').textContent = chant.age;
       document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
       document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
       document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
@@ -140,7 +140,7 @@
       const complexite = document.getElementById('filter-complexite').value;
 
       const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.tranche_age === age) &&
+        return (!age || chant.age === age) &&
                (!intensite || chant.intensite == intensite) &&
                (!complexite || chant.complexite == complexite);
       });
