@@ -4,53 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Répertoire de Chants</title>
-  <style>
-    /* Mise en page globale */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      display: flex;
-    }
-
-    /* Div du menu sur la gauche */
-    #menu {
-      background-color: #D2B48C;
-      padding: 20px;
-      width: 300px;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
-
-    /* Contenu principal */
-    #main-content {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      margin-top: 0;
-    }
-
-    .filter {
-      display: block;
-      margin: 10px 0;
-      padding: 5px;
-      width: 100%;
-    }
-
-    #chant-details {
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
-    }
-  </style>
+  <link rel="stylesheet" href="css.css">
 </head>
 <body>
 
@@ -93,72 +47,6 @@
     </div>
   </div>
 
-  <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    let chantsData = [];
-
-    const labels = {
-        intensite: ["Calme", "Énergique"],
-        complexite: ["Facile", "Moyenne"],
-        longueur: ["Courte", "Moyenne"]
-    };
-
-    // Charger les chants depuis le fichier JSON
-    fetch('chants.json')
-        .then(response => response.json())
-        .then(chants => {
-        chantsData = chants;
-        afficherDernierChant();
-        })
-        .catch(error => console.error('Erreur de chargement des chants:', error));
-
-    // Affiche le dernier chant ajouté
-    function afficherDernierChant() {
-        if (chantsData.length > 0) {
-        afficherDetails(chantsData.length - 1);
-        }
-    }
-
-    // Affiche les détails d'un chant
-    function afficherDetails(index) {
-        const chant = chantsData[index];
-        document.getElementById('chant-title').textContent = chant.titre;
-        document.getElementById('chant-paroles').innerHTML = chant.paroles.replace(/\n/g, '<br>');
-        document.getElementById('chant-tranche-age').textContent = chant.age;
-        document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
-        document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
-        document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
-    }
-
-    // Filtrage dynamique
-    document.querySelectorAll('.filter').forEach(filter => {
-        filter.addEventListener('change', filtrerChants);
-    });
-
-    function filtrerChants() {
-        const age = document.getElementById('filter-age').value;
-        const intensite = document.getElementById('filter-intensite').value;
-        const complexite = document.getElementById('filter-complexite').value;
-
-        const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.age === age) &&
-                (!intensite || chant.intensite == intensite) &&
-                (!complexite || chant.complexite == complexite);
-        });
-
-        afficherChants(chantsFiltres);
-    }
-
-    function afficherChants(chants) {
-        if (chants.length > 0) {
-        afficherDetails(0); // Afficher le premier chant de la liste filtrée
-        } else {
-        document.getElementById('chant-details').innerHTML = "<p>Aucun chant trouvé.</p>";
-        }
-    }
-    });
-
-
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

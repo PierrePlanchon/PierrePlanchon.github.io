@@ -1,0 +1,45 @@
+/* Mise en page globale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+  }
+
+  /* Div du menu sur la gauche */
+  #menu {
+    background-color: #D2B48C;
+    padding: 20px;
+    width: 300px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  /* Contenu principal */
+  #main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  .filter {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+  }
+
+  #chant-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
