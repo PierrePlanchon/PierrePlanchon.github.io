@@ -19,5 +19,12 @@ const chantsData = [
       "age": "11-14",
       "intensite": 3,
       "complexite": 1,
+    },
+    {
+      "titre": "Egyptum",
+      "paroles": "\nEgyptum, caraboum, tic et tic et tic et aïe aïe aïe !\nDans les dunes, je déambule,\nC'est la chanson de tout-en-carton !",
+      "age": "3-6",
+      "intensite": 1,
+      "complexite": 1,
     }
   ]
