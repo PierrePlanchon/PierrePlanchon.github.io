@@ -3,6 +3,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de s'adapter sur différentes lignes sur les petits écrans */
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Div du menu sur la gauche */
@@ -12,75 +15,122 @@ body {
     width: 300px;
     min-height: 100vh;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: width 0.3s ease;
 }
 
-/* Contenu principal */
-#main-content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    padding: 20px;
-    box-sizing: border-box;
+/* Style global du conteneur de recherche */
+#search-container {
+    text-align: left;
+    width: 100%; /* Assurez-vous que le conteneur prend toute la largeur disponible */
+    box-sizing: border-box; /* Inclure padding et bordure dans la largeur */
 }
 
-h1 {
-    margin-top: 0;
+/* Champ de recherche aligné à gauche */
+#search-input {
+    padding: 10px;
+    width: 100%; /* Prend toute la largeur disponible */
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur totale */
+}
+
+/* Style de focus sur le champ de recherche */
+#search-input:focus {
+    outline: none;
+    border-color: #D2B48C;
 }
 
 .filter {
     display: block;
     margin: 10px 0;
     padding: 5px;
-    width: 100%;
+    width: 100%; /* Assurez-vous que les filtres prennent toute la largeur */
+    box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur totale */
 }
 
-#chant-details {
-    background-color: #f9f9f9;
+
+
+/* Contenu principal */
+#main-content {
+    margin-left: 300px; /* Espace laissé pour le menu */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 300px); /* Le contenu principal prend toute la largeur restante */
 }
 
-#chant-details {
-    transition: all 0.3s ease-in-out;
+/* Quand la largeur de l'écran est inférieure à 768px (tablettes et téléphones en mode paysage) */
+@media (max-width: 768px) {
+    #menu {
+        width: 250px; /* Réduit légèrement la largeur */
+    }
+
+    #main-content {
+        margin-left: 250px; /* Espace laissé pour le menu */
+        width: calc(100% - 250px); /* Le contenu prend la largeur restante */
+    }
 }
 
-.filter {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.2s;
-}
-.filter:focus {
-    border-color: #D2B48C;
-    outline: none;
+/* Quand la largeur de l'écran est inférieure à 480px (téléphones en mode portrait) */
+@media (max-width: 480px) {
+    #menu {
+        width: 100%; /* Le menu prend toute la largeur */
+        position: relative; /* Le menu ne sera plus fixe */
+        min-height: auto;
+        padding: 10px;
+    }
+
+    #main-content {
+        margin-left: 0; /* Plus besoin d'espace pour le menu */
+        width: 100%; /* Le contenu prend toute la largeur disponible */
+    }
+
+    #menu h1 {
+        font-size: 1.2em;
+    }
+
+    #search-input {
+        font-size: 0.9em;
+    }
+
+    #disclaimer {
+        font-size: 0.8em;
+    }
 }
 
 /* Conteneur pour les chants */
 .chants-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Crée des colonnes de taille flexible */
-    gap: 20px; /* Espace entre les éléments */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
-    width: 100%; /* Prend toute la largeur disponible */
-    box-sizing: border-box; /* Assure que le padding et les bordures sont pris en compte dans la largeur */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-  
 /* Chaque item de chant */
 .chant-item {
     background-color: #f9f9f9;
-    min-width: 250px; /* Taille fixe pour chaque item */
-    height: 250px; /* Hauteur fixe pour chaque item */
+    min-width: 250px;
+    height: 250px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    overflow: hidden; /* Coupe le contenu qui dépasse */
-    box-sizing: border-box; /* Inclut padding et bordures dans la taille */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Ajouter un effet de survol pour chaque chant */
+.chant-item:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .chant-item h2 {
@@ -95,30 +145,31 @@ h1 {
     color: #555;
     line-height: 1.5;
     overflow: hidden;
-    text-overflow: ellipsis; /* Coupe le texte avec des "..." si trop long */
+    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Affiche jusqu'à 3 lignes */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
+/* Modifier la disposition des chants pour les petites tailles d'écran */
 @media (max-width: 800px) {
     .chants-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes plus petites sur écrans mobiles */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes plus petites */
     }
 }
 
 /* Pop-up modale */
 .chant-modal {
-    display: none; /* Caché par défaut */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Assombrir l'arrière-plan */
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* S'assurer que le pop-up est au-dessus du reste */
+    z-index: 1000;
 }
 
 /* Contenu du pop-up */
@@ -142,52 +193,3 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
-
-/* Conteneur des chants */
-.chants-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.chant-item {
-    cursor: pointer; /* Changer le curseur pour indiquer que l'élément est cliquable */
-    background-color: #f9f9f9;
-    min-width: 250px;
-    height: 250px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-/* Style pour le champ de recherche */
-#search-container {
-    padding: 20px;
-    text-align: left;
-}
-
-#search-input {
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-#search-input:focus {
-    outline: none;
-    border-color: #D2B48C;
-}
-
-
-
-  
