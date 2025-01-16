@@ -36,20 +36,39 @@
       <option value="2">Moyenne</option>
       <option value="3">Difficle</option>
     </select>
+    
+    <!-- Champ de recherche -->
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Rechercher un chant..." />
+    </div>
   </div>
+
 
   <!-- Contenu principal -->
   <div id="main-content">
-    <div id="chant-details">
+    <div id="chant-details" class="chants-container">
       <h2 id="chant-title"></h2>
       <p><strong>Paroles :</strong> <span id="chant-paroles"></span></p>
       <p><strong>Tranche d'âge :</strong> <span id="chant-tranche-age"></span></p>
       <p><strong>Intensité :</strong> <span id="chant-intensite"></span></p>
       <p><strong>Complexité :</strong> <span id="chant-complexite"></span></p>
-      <p><strong>Longueur :</strong> <span id="chant-longueur"></span></p>
     </div>
   </div>
 
+  <!-- Pop-up modale -->
+  <div id="chant-modal" class="chant-modal">
+    <div class="chant-modal-content">
+      <span id="close-modal" class="chant-modal-close">&times;</span>
+      <h2 id="chant-title"></h2>
+      <p id="chant-paroles"></p>
+      <p><strong>Tranche d'âge :</strong> <span id="chant-age"></span></p>
+      <p><strong>Intensité :</strong> <span id="chant-intensite"></span></p>
+      <p><strong>Complexité :</strong> <span id="chant-complexite"></span></p>
+    </div>
+  </div>
+
+
+  <script src="chants.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

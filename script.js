@@ -1,63 +1,151 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let chantsData = [];
-
+document.addEventListener("DOMContentLoaded", function () {
     const labels = {
-        intensite: ["Calme", "Énergique"],
-        complexite: ["Facile", "Moyenne"],
-        longueur: ["Courte", "Moyenne"]
+      intensite: ["Calme", "Énergique", "Très énergique"],
+      complexite: ["Facile", "Moyenne", "Difficile"],
     };
-
-    // Charger les chants depuis le fichier JSON
-    fetch('chants.json')
-        .then(response => response.json())
-        .then(chants => {
-        chantsData = chants;
-        afficherDernierChant();
-        })
-        .catch(error => console.error('Erreur de chargement des chants:', error));
-
-    // Affiche le dernier chant ajouté
-    function afficherDernierChant() {
-        if (chantsData.length > 0) {
-        afficherDetails(chantsData.length - 1);
-        }
-    }
-
-    // Affiche les détails d'un chant
-    function afficherDetails(index) {
-        const chant = chantsData[index];
-        document.getElementById('chant-title').textContent = chant.titre;
-        document.getElementById('chant-paroles').innerHTML = chant.paroles.replace(/\n/g, '<br>');
-        document.getElementById('chant-tranche-age').textContent = chant.age;
-        document.getElementById('chant-intensite').textContent = labels.intensite[chant.intensite - 1];
-        document.getElementById('chant-complexite').textContent = labels.complexite[chant.complexite - 1];
-        document.getElementById('chant-longueur').textContent = labels.longueur[chant.longueur - 1];
-    }
-
-    // Filtrage dynamique
-    document.querySelectorAll('.filter').forEach(filter => {
-        filter.addEventListener('change', filtrerChants);
+  
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function () {
+      filtrerChants(); // Refiltrer les chants dès que l'utilisateur tape
     });
-
+  
+    // Affiche les détails de plusieurs chants
+    function afficherListeChants(chants) {
+      const chantsContainer = document.querySelector('.chants-container');
+      chantsContainer.innerHTML = ""; // Réinitialise le contenu précédent
+  
+      if (chants.length === 0) {
+        afficherMessageAucunResultat(); // Affiche le message si aucun chant n'est trouvé
+      } else {
+        chants.forEach(chant => {
+          const chantDiv = document.createElement('div');
+          chantDiv.classList.add('chant-item');
+  
+          chantDiv.innerHTML = `
+            <h2>${chant.titre}</h2>
+            <p><strong>Paroles :</strong> ${chant.paroles.replace(/\n/g, '<br>')}</p>
+            <p><strong>Tranche d'âge :</strong> ${chant.age}</p>
+            <p><strong>Intensité :</strong> ${labels.intensite[chant.intensite - 1]}</p>
+            <p><strong>Complexité :</strong> ${labels.complexite[chant.complexite - 1]}</p>
+          `;
+  
+          chantsContainer.appendChild(chantDiv);
+  
+          // Ajouter un événement de clic sur chaque élément pour afficher les détails dans le pop-up
+          chantDiv.addEventListener('click', function () {
+            afficherPopupChant(chant);
+          });
+        });
+  
+        cacherMessageAucunResultat();
+        chantsContainer.style.display = "grid"; // S'assure que la grille est affichée
+      }
+    }
+  
+    // Filtrage dynamique
     function filtrerChants() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase(); // Récupère le terme de recherche et le met en minuscule
         const age = document.getElementById('filter-age').value;
         const intensite = document.getElementById('filter-intensite').value;
         const complexite = document.getElementById('filter-complexite').value;
-
+    
+        // Filtrer les chants en fonction du terme de recherche et des autres filtres
         const chantsFiltres = chantsData.filter(chant => {
-        return (!age || chant.age === age) &&
-                (!intensite || chant.intensite == intensite) &&
-                (!complexite || chant.complexite == complexite);
+        const titre = chant.titre.toLowerCase(); // Transforme le titre en minuscule
+        const paroles = chant.paroles.toLowerCase(); // Transforme les paroles en minuscule
+    
+        // Vérifie le champ de recherche
+        const matchesSearchTerm = !searchTerm || titre.includes(searchTerm) || paroles.includes(searchTerm);
+    
+        // Vérifie les autres filtres (âge, intensité, complexité)
+        const matchesAge = !age || chant.age === age;
+        const matchesIntensite = !intensite || chant.intensite == intensite;
+        const matchesComplexite = !complexite || chant.complexite == complexite;
+    
+        // Le chant est valide si tous les critères sont remplis
+        return matchesSearchTerm && matchesAge && matchesIntensite && matchesComplexite;
         });
-
-        afficherChants(chantsFiltres);
+    
+        afficherListeChants(chantsFiltres); // Affiche les chants filtrés
     }
-
-    function afficherChants(chants) {
-        if (chants.length > 0) {
-        afficherDetails(0); // Afficher le premier chant de la liste filtrée
-        } else {
-        document.getElementById('chant-details').innerHTML = "<p>Aucun chant trouvé.</p>";
-        }
-    }
+    
+    // Ajout des événements pour les filtres
+    document.querySelectorAll('.filter').forEach(filter => {
+        filter.addEventListener('change', filtrerChants);
     });
+    
+    // Appel initial de filtrerChants pour appliquer les filtres de départ lors du chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        filtrerChants();
+    });
+    
+  
+  
+  
+  
+    // Gère l'affichage du message "Aucun chant trouvé"
+    function afficherMessageAucunResultat() {
+      const chantsContainer = document.querySelector('.chants-container');
+      chantsContainer.style.display = "none"; // Cache le conteneur des chants
+  
+      const mainContent = document.getElementById('main-content');
+      let message = document.getElementById('aucun-resultat');
+  
+      if (!message) {
+        message = document.createElement('p');
+        message.id = 'aucun-resultat';
+        message.textContent = "Aucun chant trouvé pour les critères sélectionnés.";
+        mainContent.appendChild(message);
+      }
+  
+      message.style.display = "block";
+    }
+  
+    // Cache le message "Aucun chant trouvé"
+    function cacherMessageAucunResultat() {
+      const message = document.getElementById('aucun-resultat');
+      if (message) {
+        message.style.display = "none";
+      }
+    }
+  
+    // Afficher le pop-up avec les détails du chant
+    function afficherPopupChant(chant) {
+      const modal = document.getElementById('chant-modal');
+      const title = document.getElementById('chant-title');
+      const paroles = document.getElementById('chant-paroles');
+      const age = document.getElementById('chant-age');
+      const intensite = document.getElementById('chant-intensite');
+      const complexite = document.getElementById('chant-complexite');
+  
+      title.textContent = chant.titre;
+      paroles.innerHTML = chant.paroles.replace(/\n/g, '<br>');
+      age.textContent = chant.age;
+      intensite.textContent = labels.intensite[chant.intensite - 1];
+      complexite.textContent = labels.complexite[chant.complexite - 1];
+  
+      modal.style.display = "flex"; // Affiche le pop-up
+    }
+  
+    // Fermer le pop-up lorsqu'on clique sur le fond
+    document.getElementById('chant-modal').addEventListener('click', function (event) {
+      if (event.target === this) {
+        fermerPopup();
+      }
+    });
+  
+    // Fermer le pop-up lorsqu'on clique sur le bouton de fermeture
+    document.getElementById('close-modal').addEventListener('click', function () {
+      fermerPopup();
+    });
+  
+    // Fonction pour fermer le pop-up
+    function fermerPopup() {
+      const modal = document.getElementById('chant-modal');
+      modal.style.display = "none"; // Cache le pop-up
+    }
+  
+    // Initialisation : afficher tous les chants
+    afficherListeChants(chantsData);
+  });
+  
