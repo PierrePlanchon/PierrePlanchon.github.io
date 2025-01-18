@@ -208,6 +208,13 @@ const chantsData = [
     "age": "6-10",
     "intensite": 3,
     "complexite": 1
+  },
+  {
+    "titre": "Rameurs, ramez",
+    "paroles": "\nRame, rame, rameurs, ramez\nOn avance à rien dans c'canoë\nLà-haut, on t'mène en bateau\nTu pourras jamais tout quitter, t'en aller\nTais-toi et \n\nReprendre au début : Tais-toi et rame, rame, rameurs, ramez ...",
+    "age": "6-10",
+    "intensite": 1,
+    "complexite": 1
   }
   
   
