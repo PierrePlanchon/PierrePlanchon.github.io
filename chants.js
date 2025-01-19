@@ -144,7 +144,7 @@ const chantsData = [
     "audio" : "./audios/"
   },
   {
-    "titre": "Hier au soir",
+    "titre": "Ta pomme ta poire",
     "paroles": "\nHier au soir\nTa pomme ta poire\nUne jeune fille\nTa pomme ta poire\nfut assassinée\nTa pomme ta poire\nPar une bande de bandits\n\nEt la police\nTa pomme ta poire\nToujours pleine de malice\nTa pomme ta poire\nfut poser une affiche\nTa pomme ta poire\nSur laquelle on lisait\n\nC'est la mère Michelle qui a perdu son chat\nQui crie par la fenêtre\nAux armes citoyens mon oncle Julien\nFormez vos bataillons mon oncle Léon\nMarchons, marchons\n\nNon je ne marcherais pas\nCar ils étaient 4\nà vouloir se battre\nContre 3\nMais le 4ème dit\n\nMalbrougt s'en va en guerre\nHaricot champignon pomme de terre\nMalbrougt s'en va en guerre\nSur un petit, petit navire\nQui n'avait ja-ja-jamais on a vu-vu-vu\nJamais on n'verra-ra-ra\nLa queue d'une souri-ri-ris\nDans l'oreille d'un chat-chat-chat",
     "age": "11-14",
     "intensite": 1,
@@ -246,8 +246,125 @@ const chantsData = [
     "intensite": 1,
     "complexite": 1,
     "audio" : "./audios/Rameurs, ramez.m4a"
+  },
+  {
+    "titre": "Jean Petit qui danse",
+    "paroles": "\nJean Petit qui danse (bis)\nde son bras il danse (bis)\nde son bras bras bras\net de sa main main main\net de son doigt doigt doigt\nHey ! Ainsi danse Jean Petit\n\nJean Petit qui danse (bis)\nde son pied il danse (bis)\nde son pied pied pied\net de son bras bras bras\net de sa main main main\net de son doigt doigt doigt\nHey ! Ainsi danse Jean Petit\n\nContinuer en rajoutant une partie du corps à chaque fois.",
+    "age": "3-6",
+    "intensite": 3,
+    "complexite": 2
+  },
+  {
+    "titre": "Bonjour, ma cousine",
+    "paroles": "\nBonjour, ma cousine\nBonjour, mon cousin germain\nOn m’a dit que vous m’aimiez\nEst-ce bien la vérité ?\nJe n’m’en soucie guère (bis)\nPassez par ici et moi par-là\nAu r’voir ma cousine on s'reverra",
+    "age": "6-10",
+    "intensite": 2,
+    "complexite": 2
+  },
+  {
+    "titre": "Petit escargot",
+    "paroles": "\nPetit escargot\nPorte sur son dos\nSa maisonnette.\n\nAussitôt qu’il pleut,\nIl est tout heureux,\nIl sort sa tête.\n\nPetit limaçon,\nn’a pas de maison\npour faire la fête.\n\nAussitôt qu’il pleut,\nIl est malheureux,\nIl fait la tête.",
+    "age": "3-6",
+    "intensite": 1,
+    "complexite": 1
+  },
+  {
+    "titre": "Tourne, tourne, petit moulin",
+    "paroles": "\nTourne, tourne, petit moulin\nFrappent, frappent, petites mains\nVole, vole, petit oiseau\nNage, nage, poisson dans l'eau\n\nPetit moulin a bien tourné\nPetites mains ont bien frappé\nPetit oiseau a bien volé\nPetit poisson a bien nagé.",
+    "age": "3-6",
+    "intensite": 1,
+    "complexite": 1
+  },
+  {
+    "titre": "Une souris verte",
+    "paroles": "\nUne souris verte qui courait dans l'herbe\nJe l'attrape par la queue, je la montre à ces messieurs\nCes messieurs me disent : \"Trempez-la dans l'huile, trempez-la dans l'eau,\nÇa fera un escargot tout chaud.\"\n\nJe la mets dans mon chapeau, elle me dit qu'il fait trop chaud\nJe la mets dans mon tiroir, elle me dit qu'il fait trop noir\nJe la mets dans ma culotte\nElle me fait trois petites crottes.",
+    "age": "3-6",
+    "intensite": 1,
+    "complexite": 1
+  },
+  {
+    "titre": "Gonissa",
+    "paroles": "\nMeneur : Moi, Hugues, grand chef indien !\nGroupe : Toi, Hugues, grand chef indien !\nMeneur : Vous, petites plumes !\nGroupe : Nous, petites plumes !\nMeneur : Allons invoquer les grands esprits !\nGroupe : Allons invoquer les grands esprits !\n\nOh goni-gonissa oh goni (bis)\nAwawa aguadawawa (bis)\nOuni. Ouni. Ouni-piki-si !",
+    "age": "6-10",
+    "intensite": 2,
+    "complexite": 2
+  },
+  {
+    "titre": "Babedi Bedon",
+    "paroles": "\nBabedi bedon, j'ai mal à ma bedaine\nBabedi bedon, j'ai mal à mon bidon\n\nQuand je me lève, j'ai mal à ma bedaine\nBabedi bedon, j'ai mal à mon bidon",
+    "age": "3-6",
+    "intensite": 2,
+    "complexite": 1
+  },
+  {
+    "titre": "Pour avoir des bras musclés",
+    "paroles": "\nPour avoir des bras musclés,\nDes bras musclés, des bras musclés,\nPour avoir les bras musclés,\nIl faut boire du lait d’coco\nOUI MAIS !\n\nPour boire du lait de coco,\nLait de coco, lait de coco,\nPour boire du lait de coco,\nIl faut avoir une noix d’coco\nOUI MAIS !\n\nPour avoir une noix d’coco,\nUne noix d’coco, une noix d’coco,\nPour avoir une noix d’coco,\nIl faut secouer le cocotier\nOUI MAIS !\n\nPour secouer le cocotier,\nLe cocotier, le cocotier,\nPour secouer le cocotier,\nIl faut avoir des bras musclés !\n\n(OUI MAIS ! --> recommencer la chanson)",
+    "age": "6-10",
+    "intensite": 3,
+    "complexite": 2
+  },
+  {
+    "titre": "Maké toumé toumé",
+    "paroles": "\nMaké toumé toumé papa\nMaké toumé toumé pa (bis)\n\nToutou yé toutou yé papa\nToutou yé toutou yé pa (bis)\n\nYéna yéna yéna hé !\nYéna yéna yéna hé ! (bis)",
+    "age": "6-10",
+    "intensite": 2,
+    "complexite": 2
+  },
+  {
+    "titre": "Kumbaya",
+    "paroles": "\nKumbaya my Lord, kumbaya\nKumbaya my Lord, kumbaya\nKumbaya my Lord, kumbaya\nOh Lord, kumbaya",
+    "age": "6-10",
+    "intensite": 1,
+    "complexite": 1
+  },
+  {
+    "titre": "Big Fat Pony",
+    "paroles": "\nHere I go on my big fat pony (bis)\nHere I go on my big fat pony,\nEarly in the morning\n\nFace to face to face, my baby\nBack to back to back, my baby\nSide to side to side, my baby\nEarly in the morning !",
+    "age": "6-10",
+    "intensite": 3,
+    "complexite": 2
+  },
+  {
+    "titre": "Au Cricri",
+    "paroles": "\nAu Cricri !!\n\nCrac plouf !\n\nLe cri cri est tombé dans l’eau\n\nMais le cricri savait nager\n\nIl est remonté sur sa branche",
+    "age": "6-10",
+    "intensite": 3,
+    "complexite": 1
+  },
+  {
+    "titre": "Le Crocodile",
+    "paroles": "\nUn crocodile, s'en allant en guerre,\nDisait au r'voir à ses petits enfants.\nTraînant ses pieds, ses pieds dans la poussière,\nIl s'en allait combattr' les éléphants.\n\nREFRAIN (bis)\nAh ! Les cro, cro, cro (bis)\nles crocodiles\nSur les bords du Nil, ils sont partis,\nN'en parlons plus.\n\nIl fredonnait une march' militaire,\nDont il mâchait les mots à grosses dents.\nQuand il ouvrait la gueule tout entière,\nOn croyait voir ses ennemis dedans.\n\nREFRAIN\n\nIl agitait sa grande queue à l'arrière,\nComme s'il était d'avance triomphant.\nLes animaux devant sa mine altière,\nDans les forêts, s'enfuyaient tout tremblants.\n\nREFRAIN\n\nUn éléphant parut : et sur la terre,\nSe prépara ce combat de géants.\nMais près de là courait une rivière,\nLe crocodile s'y jeta subitement.\n\nREFRAIN\n\nEt tout rempli d'une crainte salutaire,\nS'en retourna vers ses petits enfants.\nNotre éléphant, d'une trompe plus fière,\nVoulut alors accompagner ce chant.\n\nREFRAIN",
+    "age": "3-6",
+    "intensite": 2,
+    "complexite": 2
+  },
+  {
+    "titre": "Et Tchic et Tchac",
+    "paroles": "\nEt tchic et tchac et tchic et tchac et tchic et tchac han-han (x4)\nLes pouces en avant, (les pouces en avant)\nLes coudes en arrière (les coudes en arrière)\n\nEt tchic et tchac et tchic et tchac et tchic et tchac han-han (x4)\nLes pouces en avant (les pouces en avant)\nLes coudes en arrière (les coudes en arrière)\nLes genoux pliés (les genoux pliés)\n\nContinuer en ajoutant :\n- Les pieds rentrés (les pieds rentrés)\n- La tête en l'air (la tête en l'air)\n- Les fesses en l'air (les fesses en l'air)\n- Les yeux qui louchent (les yeux qui louchent)\n- Un ch'veu sur la langue (un ch'veu sur la langue)",
+    "age": "6-10",
+    "intensite": 3,
+    "complexite": 1
+  },
+  {
+    "titre": "Ginette !",
+    "paroles": "\nGinette ! \nTu m'as laissé\nSur cette plage\nEnsoleillée !\nJ'y suis resté\nDésespéré !\nLes yeux mouillés,\nLes pieds dans l'eau !\n\nLes yeux mouillés eh eh\nLes pieds dans l'eau oh oh\nLes yeux mouillés eh eh\nLes pieds dans l'eau oh oh\n\nLes yeux mouillés\nLes pieds dans l'eau\nLes yeux mouillés\nLes pieds dans l'eau.",
+    "age": "6-10",
+    "intensite": 2,
+    "complexite": 2
+  },
+  {
+    "titre": "Nagawika",
+    "paroles": "\nUn petit indien\nNagawika\n\nChantait gaiement sur le chemin\nNagawika, Nagawika\n\nQuand je serai grand\nNagawika\n\nJ'aurai un arc et un carquois\nNagawika, Nagawika\n\nAvec mes flèches\nNagawika\n\nJe chasserai le grand bison\nNagawika, Nagawika\n\nSur mon cheval\nNagawika\n\nJ'irai plus vite que le vent\nNagawika, Nagawika\n\nAutour du feu\nNagawika\n\nJe danserai toute la nuit\nNagawika, Nagawika\n\nUn petit indien\nNagawika\n\nChantait gaiement sur le chemin\nNagawika, Nagawika",
+    "age": "6-10",
+    "intensite": 1,
+    "complexite": 2
+  },
+  {
+    "titre": "Mon beau Tahitien",
+    "paroles": "\nMon beau Tahitien, mon beau Tahitien (bis)\nEt toi là-bas viens ici, mon beau Tahitien (bis)\nSaluez-vous s'il vous plaît, mon beau Tahitien (bis)\nEmbrassez-vous s'il vous plaît, mon beau Tahitien (bis)\nEt dos à dos s'il vous plaît, mon beau Tahitien (bis)\nMon beau Tahitien, mon beau Tahitien (bis)",
+    "age": "6-10",
+    "intensite": 2,
+    "complexite": 1
   }
-  
-  
   
 ]
