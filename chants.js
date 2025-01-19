@@ -5,6 +5,7 @@ const chantsData = [
     "age": "6-10",
     "intensite": 2,
     "complexite": 1,
+    "audio" : "./audios/bougalou.m4a"
   },
   {
     "titre": "Le grand serpent de la montagne",
@@ -12,6 +13,7 @@ const chantsData = [
     "age": "6-10",
     "intensite": 2,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Piston",
@@ -19,6 +21,7 @@ const chantsData = [
     "age": "11-14",
     "intensite": 3,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Egyptum",
@@ -26,6 +29,7 @@ const chantsData = [
     "age": "3-6",
     "intensite": 1,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Une araignée",
@@ -33,6 +37,7 @@ const chantsData = [
     "age": "3-6",
     "intensite": 1,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Ma tante au Maroc",
@@ -40,6 +45,7 @@ const chantsData = [
     "age": "6-10",
     "intensite": 2,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Je suis un artiste",
@@ -47,6 +53,7 @@ const chantsData = [
     "age": "6-10",
     "intensite": 2,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Oh! Ursule",
@@ -54,6 +61,7 @@ const chantsData = [
     "age": "6-10",
     "intensite": 2,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "A l'intérieur d'une citrouille",
@@ -61,6 +69,7 @@ const chantsData = [
     "age": "3-6",
     "intensite": 1,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Les petites grenouilles",
@@ -68,153 +77,175 @@ const chantsData = [
     "age": "3-6",
     "intensite": 1,
     "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "C'est un petit bonhomme",
     "paroles": "\nC'est un petit bonhomme, petit, petit, petit…\nSa tête est une pomme\nSon nez est un radis\nSes yeux sont des groseilles\nSa bouche est un bonbon\nEt il a comme oreilles\ndes graines de melon, lon, lon, lon...\n\nSa jambe est une banane\nSon autre jambe aussi\nÀ sa main, une canne en sucre de candi\nIl a une longue barbe\nUn tout petit chapeau\nEt une feuille de rhubarbe\nLui sert de long manteau, teau, teau, teau.",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "C'est un petit clown",
     "paroles": "\nC'est un petit clown, clown, clown, clown, clown,\nQui fait du vélo, qui qui fait du vélo,\nC'est un petit clown, clown, clown, clown, clown,\nQui fait du vélo sur son joli p'tit fil doré.\n\nEst-ce qu'il va tomber, tomber, tomber,\nCe tout petit clown, ce tout petit clown ?\nEst-ce qu'il va tomber, tomber, tomber,\nCe tout petit clown sur son joli p'tit fil doré ?",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "J'ai un gros nez rouge",
     "paroles": "\nJ'ai un gros nez rouge\nDeux traits sous les yeux\nUn chapeau qui bouge\nUn air malicieux\nDeux grandes savates\nUn grand pantalon\nEt quand ça me gratte\nJe saute au plafond.",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Il y a un rat sous mon toit",
     "paroles": "\nIl y a un rat sous mon toit\nJ'entends le chat qui miaule\nIl y a un rat sous mon toit\nJ'entends le chat miauler\n\nJ'entends miaou j'entends miaou\nJ'entends le chat qui miaule\nJ'entends miaou j'entends miaou\nJ'entends le chat miauler",
     "age": "3-6",
     "intensite": 2,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Une bulle bulle vole",
     "paroles": "\nUne bulle bulle vole\nQuatre bulles bulles s’envolent\nDes milliers de bulles font la farandole\nUne bulle bulle vole",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "C'est la baleine",
     "paroles": "\nC'est la baleine\nqui tourne qui vire\ncomme un joli petit navire\nPrenez garde à vos p'tits doigts\nou la baleine les mangera !\nMiam !\n\nEnlever un doigt et répéter jusqu'à n'avoir plus aucun doigt.",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Un éléphant",
     "paroles": "\nUn éléphant\nQui se baladait\nTout doucement\nDans la forêt\n\nIl avait sur son dos\nUn petit perroquet\nQui s'appelait Jaquot\nEt qui buvait du lait.\n\nRecommencer en remplaçant toutes les voyelles par e , a, i, o, u",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "On pagaie, on pagaie",
     "paroles": "\nOn pagaie, on pagaie\nElle est où la pagaie ?\nLà bas sous les cocotiers\nC'est l'croco qui l'a mangée\nEt on peut plus pagayer",
     "age": "3-6",
     "intensite": 2,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Hier au soir",
     "paroles": "\nHier au soir\nTa pomme ta poire\nUne jeune fille\nTa pomme ta poire\nfut assassinée\nTa pomme ta poire\nPar une bande de bandits\n\nEt la police\nTa pomme ta poire\nToujours pleine de malice\nTa pomme ta poire\nfut poser une affiche\nTa pomme ta poire\nSur laquelle on lisait\n\nC'est la mère Michelle qui a perdu son chat\nQui crie par la fenêtre\nAux armes citoyens mon oncle Julien\nFormez vos bataillons mon oncle Léon\nMarchons, marchons\n\nNon je ne marcherais pas\nCar ils étaient 4\nà vouloir se battre\nContre 3\nMais le 4ème dit\n\nMalbrougt s'en va en guerre\nHaricot champignon pomme de terre\nMalbrougt s'en va en guerre\nSur un petit, petit navire\nQui n'avait ja-ja-jamais on a vu-vu-vu\nJamais on n'verra-ra-ra\nLa queue d'une souri-ri-ris\nDans l'oreille d'un chat-chat-chat",
     "age": "11-14",
     "intensite": 1,
-    "complexite": 3
+    "complexite": 3,
+    "audio" : "./audios/"
   },
   {
     "titre": "Brousse, brousse",
     "paroles": "\nBrousse, brousse\nJ'aime la brousse\nJ'aime la brousse et la jolie savane\nY'a des tigres et y'a des lions\nY'a des léopards\nJ'aime la brousse et la jolie savane",
     "age": "6-10",
     "intensite": 3,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Lucky Luke",
     "paroles": "\nSur son cheval blanc couvert de poussière\nIl va galopant d'une allure fière\nRoi du pistolet et roi du lasso\nDe tout le Far-West c'est lui le héros\n\nC'est Lucky Luke\nLucky Luke\nLucky Luke\nTa tagada tagada tagada\n\nAttention Lucky, voilà les Dalton\nPrépare ton fusil et crache ton chewing-gum\n4 coups de pétards claquent dans la nuit\n1 ! 2 ! 3 ! 4 !\nLes Daltons sont cuits.",
     "age": "6-10",
     "intensite": 2,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Les bidons d'eau",
     "paroles": "\n1 bidon, 2 bidons, 3 bidons d'eau\n4 bidons d'eau, 5 bidons d'eau\n6 bidons, 7 bidons, 8 bidons d'eau\n9 et 10 bidons d'eau\n\n10 bidons, 9 bidons, 8 bidons d'eau,\n7 bidons d'eau, 6 bidons d'eau,\n5 bidons, 4 bidons, 3 bidons d'eau,\n2 et 1 bidon d'eau",
     "age": "6-10",
     "intensite": 1,
-    "complexite": 2
+    "complexite": 2,
+    "audio" : "./audios/"
   },
   {
     "titre": "La famille tortue",
     "paroles": "\nJamais on a vu\nJamais on ne verra\nLa famille tortue courir après les rats\nLe papa tortue et la maman tortue\nEt les enfants tortue\nIront toujours au pas !",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "La maison de ma tante",
     "paroles": "\nC'était ma tante qui avait une maison !\nC'était la maison de ma tante !\n\nDans cette maison, y'avait une allée !\nC'était l'allée de la maison de ma tante !\n\nDans cette allée, y'avait un jardin !\nC'était le jardin de l'allée de la maison de ma tante !\n\nDans ce jardin, y'avait un pommier !\nC'était le pommier du jardin de l'allée de la maison de ma tante !\n\nSur ce pommier, y'avait une pomme !\nC'était la pomme du pommier du jardin de l'allée de la maison de ma tante !\n\nSur cette pomme, y'avait un oiseau !\nC'était l'oiseau de la pomme du pommier du jardin de l'allée de la maison de ma tante !\n\nSur cet oiseau, y'avait une plume !\nC'était la plume de l'oiseau de la pomme du pommier du jardin de l'allée de la maison de ma tante !\n\nAvec cette plume, on fit un matelas !\nC'était le matelas de la plume de l'oiseau de la pomme du pommier du jardin de l'allée de la maison de ma tante !",
     "age": "6-10",
     "intensite": 2,
-    "complexite": 3
+    "complexite": 3,
+    "audio" : "./audios/"
   },
   {
     "titre": "Derrière chez moi",
     "paroles": "\nDerrière chez moi, devinez quoi qu'il y a ?\nY a un arbre, le plus beau des arbres\nArbre dans le bois\n\nRefrain :\nEhh petit bois derrière chez moi\nTraloula loulere et traloula loula\nTraloula loulere et traloula loula\n\nEt dans cet arbre devinez quoi qu'il y a ?\nY a une branche, la plus grande des branches\nBranche dans l'arbre, arbre dans le bois\n\nRefrain\n\nEt sur cette branche devinez quoi qu'il y a ?\nY a un nid, un tout p'tit nid\nNid sur la branche, branche dans l'arbre, arbre dans le bois\n\nRefrain\n\nEt dans ce nid devinez quoi qu'il y a ?\nY a un oeuf, un tout p'tit oeuf\nOeuf dans le nid, nid sur la branche, ...\n\nRefrain\n\nEt dans cet oeuf devinez quoi qu'il y a ?\nY a un zozio, un tout p'tit zozio\nZozio dans l'oeuf, oeuf dans le nid, ...\n\nRefrain\n\nEt dans le zozio devinez quoi qu'il y a ?\nY a un coeur, un tout p'tit coeur\nCoeur dans le zozio, zozio dans l'oeuf, ...\n\nRefrain",
     "age": "6-10",
     "intensite": 2,
-    "complexite": 2
+    "complexite": 2,
+    "audio" : "./audios/"
   },
   {
     "titre": "A Monaco",
     "paroles": "\nA Monaco c'est magnifique-fique\nLes soldats sont très sympathiques-tiques\nQuand ils boivent du cacolac-lac\nLeur coeur fait tic tic tac\ntic tac, tic tic tac tac\ntic tac, tic tic tac tac\ntic tac, tic tic tac tac\nLeur coeur fait tic tic tac\n\nPouce droit vers la droite à chaque terminaisons en IC\nPouce gauche vers la gauche à chaque terminaisons en AC",
     "age": "6-10",
     "intensite": 1,
-    "complexite": 2
+    "complexite": 2,
+    "audio" : "./audios/"
   },
   {
     "titre": "Qui peut faire de la voile sans vent",
     "paroles": "\nQui peut faire de la voile sans vent\nQui peut ramer sans rames\nEt qui peut quitter son ami\nSans verser de larmes\nJe peux faire de la voile sans vent\nJe peux ramer sans rames\nMais ne peux quitter mon ami\nSans verser de larmes\n\nQui peut faire du pain sans levain\nQui peut faire du vin sans raisin\nEt qui peut quitter son ami\nSans verser de larmes\nJe peux faire du pain sans levain\nJe peux faire du vin sans raisin\nMais ne peux quitter mon ami\nSans verser de larmes\n\nQui peut voir le soleil la nuit\nQui peut voir la nuit sans étoiles\nEt qui peut quitter son ami\nSans verser de larmes\nJe peux voir le soleil la nuit\nJe peux voir la nuit sans étoiles\nMais ne peux quitter mon ami\nSans verser de larmes",
     "age": "6-10",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Savez-vous planter les choux",
     "paroles": "\nSavez-vous planter les choux\nÀ la mode, à la mode,\nSavez-vous planter les choux\nÀ la mode, à la mode de chez vous.\n\nOn les plante avec le doigt,\nÀ la mode, à la mode,\nOn les plante avec le doigt,\nÀ la mode, à la mode de chez nous.\n\nOn les plante avec la main,\nÀ la mode, à la mode,\nOn les plante avec la main,\nÀ la mode, à la mode de chez nous.\n\nOn les plante avec la tête,\nÀ la mode, à la mode,\nOn les plante avec la tête,\nÀ la mode, à la mode de chez nous.\n\nBouger la partie du corps concernée.\nContinuer en changeant cette dernière à chaque fois",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Epo é taï taï é",
     "paroles": "\nEpo é taï taï é\nEpo é taï taï é\nEpo é taï taï\nEpo é touki touki\nEpo é touki touki é",
     "age": "3-6",
     "intensite": 1,
-    "complexite": 2
+    "complexite": 2,
+    "audio" : "./audios/"
   },
   {
     "titre": "Les coureurs du Tour de France",
     "paroles": "\nC’est nous les coureurs du tour de Fran-ance\nD’une ville à l’autre, on s’élance-ance\nLes gens émerveillés, nous regardent passer\nCousin Mathieu, Ma tante Zoé\nC’est nous les coureurs du tour de Fran-ance\n\nChanter lentement quand on imagine les coureurs prendre une côte et très vite quand ils descendent un col",
     "age": "6-10",
     "intensite": 3,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/"
   },
   {
     "titre": "Rameurs, ramez",
     "paroles": "\nRame, rame, rameurs, ramez\nOn avance à rien dans c'canoë\nLà-haut, on t'mène en bateau\nTu pourras jamais tout quitter, t'en aller\nTais-toi et \n\nReprendre au début : Tais-toi et rame, rame, rameurs, ramez ...",
     "age": "6-10",
     "intensite": 1,
-    "complexite": 1
+    "complexite": 1,
+    "audio" : "./audios/Rameurs, ramez.m4a"
   }
   
   

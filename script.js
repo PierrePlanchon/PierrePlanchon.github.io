@@ -117,26 +117,30 @@ document.addEventListener("DOMContentLoaded", function () {
       const age = document.getElementById('chant-age');
       const intensite = document.getElementById('chant-intensite');
       const complexite = document.getElementById('chant-complexite');
-
-      // Ajouter une piste audio si disponible
+    
+      // Références pour l'audio
       const audioPlayer = modal.querySelector('audio');
       const audioSource = audioPlayer.querySelector('source');
-      if (chant.audio) {
-        audioSource.src = chant.audio;
-        audioPlayer.style.display = "block";
-        audioPlayer.load();
-      } else {
-        audioPlayer.style.display = "none";
-      }
-  
+    
+      // Mettre à jour les informations
       title.textContent = chant.titre;
       paroles.innerHTML = chant.paroles.replace(/\n/g, '<br>');
       age.textContent = chant.age;
       intensite.textContent = labels.intensite[chant.intensite - 1];
       complexite.textContent = labels.complexite[chant.complexite - 1];
-  
-      modal.style.display = "flex"; // Affiche le pop-up
+    
+      // Charger le fichier audio correct
+      if (chant.audio) {
+        audioSource.src = chant.audio; // Associe la bonne source audio
+        audioPlayer.style.display = "block"; // Affiche le lecteur audio
+        audioPlayer.load(); // Recharge le lecteur audio
+      } else {
+        audioPlayer.style.display = "none"; // Cache le lecteur si pas d'audio
+      }
+    
+      modal.style.display = "flex"; // Affiche la modale
     }
+    
   
     // Fermer le pop-up lorsqu'on clique sur le fond
     document.getElementById('chant-modal').addEventListener('click', function (event) {
