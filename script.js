@@ -117,6 +117,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const age = document.getElementById('chant-age');
       const intensite = document.getElementById('chant-intensite');
       const complexite = document.getElementById('chant-complexite');
+
+      // Ajouter une piste audio si disponible
+      const audioPlayer = modal.querySelector('audio');
+      const audioSource = audioPlayer.querySelector('source');
+      if (chant.audio) {
+        audioSource.src = chant.audio;
+        audioPlayer.style.display = "block";
+        audioPlayer.load();
+      } else {
+        audioPlayer.style.display = "none";
+      }
   
       title.textContent = chant.titre;
       paroles.innerHTML = chant.paroles.replace(/\n/g, '<br>');
